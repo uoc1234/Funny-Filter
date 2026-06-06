@@ -1,0 +1,111 @@
+<resources>
+    <string name="app_name" translatable="false">Guess Filter: Funny Face Scan</string>
+    <string name="language" translatable="false">Language</string>
+    <string name="select_language">Select Language</string>
+    <string name="please_select_language">Please select language</string>
+    <string name="get_started">Get Started</string>
+    <string name="next">Next</string>
+    <string name="txt_continue">Continue</string>
+    <string name="txt_try_now">Try Now</string>
+    <string name="txt_discover">Discover</string>
+    <string name="txt_suggest">Suggest</string>
+    <string name="txt_filter_name">Filter:</string>
+    <string name="txt_home">Home</string>
+    <string name="txt_game">Game</string>
+    <string name="guess_challenge">Guess\nChallenge</string>
+    <string name="lip_fall_challenge">Lip Fall\nChallenge</string>
+    <string name="diy_draw_challenge">DIY Draw\nChallenge</string>
+    <string name="poka_runnn">Poka Runnn</string>
+    <string name="physical_features">Physical\nfeatures</string>
+    <string name="face_delay">Face Delay</string>
+    <string name="who_you_look_like">Who you look\nlike?</string>
+    <string name="welcome_to_funnyzone">Welcome\nto FunnyZone!</string>
+
+
+    <!-- Guess Challenge Screen -->
+    <string name="back">Back</string>
+    <string name="check">Check</string>
+    <string name="cartoon_challenge">Cartoon Character Challenge</string>
+    <string name="season_challenge">Season Challenge</string>
+    <string name="y2k_challenge">Y2K Challenge</string>
+    <string name="game_character_challenge">Game Character Challenge</string>
+    <string name="txt_guess_challenge">Guess Challenge</string>
+    <string name="unknown_challenge_selected">Unknown challenge selected</string>
+    <string name="please_select_a_challenge">Please select a challenge</string>
+    <string name="save">Save</string>
+    <string name="other">Other</string>
+    <string name="try_other_templates">Try Other Templates</string>
+    <string name="close">Close</string>
+    <string name="timer">Timer</string>
+    <string name="record">Record</string>
+    <string name="flip_camera">Flip Camera</string>
+    <string name="ic_close">Close</string>
+    <string name="ic_timer">Timer</string>
+    <string name="ic_record">Record</string>
+    <string name="ic_stop">Stop</string>
+    <string name="ic_flip_camera">Flip Camera</string>
+    <string name="camera">Camera</string>
+    <string name="music">Music</string>
+    <string name="duration">Duration</string>
+    <string name="apply">Apply</string>
+    <string name="off">Off</string>
+
+    <!-- Setting Screen -->
+    <string name="setting">Setting</string>
+    <string name="feedback_support">Feedback &amp; Support</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="share_app">Share App</string>
+    <string name="rate_app">Rate App</string>
+    <string name="feedback_email_subject">Feedback &amp; Support - Funny Filter App</string>
+    <string name="share_app_text">Check out this amazing Funny Filter app: https://play.google.com/store/apps/details?id=%s</string>
+    <string name="share_app_subject">Try this fun app!</string>
+    <string name="share_app_chooser_title">Share App</string>
+
+    <!-- Lip Fall Challenge -->
+    <string name="face_puzzle">FACE PUZZLE</string>
+    <string name="zoom_puzzle">ZOOM PUZZLE</string>
+    <string name="spin_puzzle">SPIN PUZZLE</string>
+    <string name="lip_fall_challenge_title">Lip Fall Challenge</string>
+
+    <!-- Physical Features -->
+    <string name="physical_features_title">Physical features</string>
+    <string name="lips">LIPS</string>
+    <string name="nose">Nose</string>
+    <string name="hand">Hand</string>
+    <string name="mouth_detection_progress">Mouth detection in progress</string>
+    <string name="nose_shape_detection">Dang mũi của bạn là dạng mũi gì</string>
+    <string name="please_select_feature">Please select a feature</string>
+    <string name="lips_feature_selected">LIPS feature selected</string>
+    <string name="nose_feature_selected">NOSE feature selected</string>
+    <string name="hand_feature_selected">HAND feature selected</string>
+    <string name="starting_lips_detection">Starting lips detection...</string>
+    <string name="starting_nose_detection">Starting nose detection...</string>
+    <string name="starting_hand_detection">Starting hand detection...</string>
+    <string name="select_countdown">Select Countdown</string>
+    <string name="dp_score">DP %1$d</string>
+    <string name="who_you_look_like_title">Who Do You Look Like?</string>
+    <string name="txt_loading">Loading ...</string>
+    <string name="txt_collection">Collection</string>
+    <string name="txt_no_collection">Collection Empty</string>
+
+    <string name="lip_national_is">Lip national is %1%s</string>
+    <string name="hand_national_is">Hand national is %1%s</string>
+    <string name="nose_national_is">Nose national is %1%s</string>
+    <string name="add_sound">Add sound</string>
+    <string name="permissions_are_required_to_use_this_feature">Permissions are required to use this feature</string>
+    <string name="try_now">Try now</string>
+    <string name="saving">Saving...</string>
+    <string name="skip">Skip</string>
+    <string name="add_song">Add Song</string>
+    <string name="saved_to_gallery_success">Video saved to Gallery</string>
+    <string name="saved_to_gallery_failed">Failed to save video</string>
+    <string name="no_video_to_save">No video to save</string>
+    <string name="source_video_not_found">Source video not found</string>
+    <string name="video_error">Video is corrupted or can\'t be loaded</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="no_videos_selected">No videos selected</string>
+    <string name="delete_file">Are you sure you want to delete %1$d selected video ?</string>
+
+
+</resources>

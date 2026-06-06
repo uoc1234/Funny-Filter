@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.exoplayer2.ui.PlayerView
+            android:id="@+id/playerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:keep_content_on_player_reset="true"
+            app:resize_mode="fill"
+            app:use_controller="false" />
+
+        <!-- Play/Pause Button -->
+        <ImageView
+            android:id="@+id/btnPlayPause"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/ic_play"
+            android:visibility="gone"
+            android:padding="@dimen/_8sdp"
+            android:elevation="@dimen/_6sdp"
+            android:background="@drawable/bg_circle_translucent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Stats Container -->
+        <LinearLayout
+            android:id="@+id/statsContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="@dimen/_48sdp"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_try_now"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <!-- Like Stats -->
+            <ImageView
+                android:id="@+id/ivLike"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:elevation="@dimen/_6sdp"
+                android:src="@drawable/img_love" />
+
+            <TextView
+                android:id="@+id/tvLikes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:elevation="@dimen/_6sdp"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                tools:text="1M" />
+
+            <!-- View Stats -->
+            <ImageView
+                android:id="@+id/ivView"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginTop="16dp"
+                android:elevation="@dimen/_6sdp"
+                android:src="@drawable/img_view" />
+
+            <TextView
+                android:id="@+id/tvViews"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:elevation="@dimen/_6sdp"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                tools:text="10M" />
+
+            <!-- Share Stats -->
+            <ImageView
+                android:id="@+id/ivShare"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginTop="16dp"
+                android:elevation="@dimen/_6sdp"
+                android:src="@drawable/img_share" />
+
+            <TextView
+                android:id="@+id/tvShares"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:elevation="@dimen/_6sdp"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                tools:text="100K" />
+
+        </LinearLayout>
+
+        <!-- Bottom Gradient and Filter Info -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/bottom_try_now"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/filterNameContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="27dp"
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/btnTryNow"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/txt_filter_name"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvFilterName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="14sp"
+                    tools:text="Face Delay" />
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnTryNow"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginHorizontal="19dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/bg_button_try_now"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/txt_try_now"
+                android:textColor="#112211"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout> 

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Example 1: Using custom attributes in XML -->
+    <com.titanbbl.funny.face.filter.game.ui.component.filter_activity.prediction.PredictionLayout
+        android:id="@+id/prediction_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:predictionText="Text from XML"
+        app:predictionImage="@drawable/img_poka_start_rec"
+        app:predictionTextSize="16sp"
+        app:predictionTextColor="@color/black"
+        app:predictionCornerRadius="8dp" />
+
+    <!-- Example 2: Basic usage -->
+    <com.titanbbl.funny.face.filter.game.ui.component.filter_activity.prediction.PredictionLayout
+        android:id="@+id/prediction_layout_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Example 3: With background color -->
+    <com.titanbbl.funny.face.filter.game.ui.component.filter_activity.prediction.PredictionLayout
+        android:id="@+id/prediction_layout_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:predictionBackgroundColor="@color/border_gray"
+        app:predictionCornerRadius="12dp" />
+
+</LinearLayout> 

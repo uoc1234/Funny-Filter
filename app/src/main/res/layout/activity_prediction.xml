@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.titanbbl.funny.face.filter.game.ui.component.filter_activity.draw.viewmodel.DrawByNoseViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/black">
+
+        <com.otaliastudios.cameraview.CameraView
+            android:id="@+id/cameraView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cameraEngine="camera2"
+            app:cameraDrawHardwareOverlays="true"
+            app:cameraFacing="front"
+            app:cameraPreviewFrameRate="24"
+            app:cameraMode="video"
+            app:cameraUseDeviceOrientation="false">
+
+            <com.titanbbl.funny.face.filter.game.ui.component.filter_activity.prediction.PredictionLayout
+                android:id="@+id/overlayImage"
+                android:layout_width="wrap_content"
+                app:layout_drawOnPictureSnapshot="true"
+                app:layout_drawOnPreview="true"
+                app:layout_drawOnVideoSnapshot="true"
+                android:layout_height="wrap_content" />
+        </com.otaliastudios.cameraview.CameraView>
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:src="@drawable/ic_back_white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/filterHeaderTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/bg_silhouette_header"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnBack"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btnBack">
+
+            <ImageView
+                android:id="@+id/ivMusicIconTop"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_music"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@android:color/white" />
+
+            <TextView
+                android:id="@+id/tvFilterNameTop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Silhouette"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivMusicIconTop"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/btnCloseFilterTop"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="12dp"
+                android:src="@drawable/ic_close"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvFilterNameTop"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@android:color/white" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/rightControls"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!-- Camera Button -->
+            <ImageView
+                android:id="@+id/btnCamera"
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                android:layout_marginBottom="12dp"
+                android:src="@drawable/ic_flip_camera" />
+
+            <!-- Timer Container -->
+            <ImageView
+                android:id="@+id/ivTimer"
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                android:src="@drawable/ic_timer" />
+
+            <TextView
+                android:id="@+id/tvTimer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:text="3s"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+
+
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/ivTimerPlay"
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                android:src="@drawable/ic_timer_play" />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tvTimerPlay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:text="1m"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tv_time_rec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:background="@drawable/bg_silhouette_header"
+            android:fontFamily="@font/poppins_regular"
+            android:padding="@dimen/_4sdp"
+            android:text="00:00"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/btnRecord"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/btnRecord"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginBottom="40dp"
+            android:src="@drawable/ic_record"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tvTimerCoundown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="center"
+            android:text="3"
+            android:visibility="gone"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_40sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/cameraView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

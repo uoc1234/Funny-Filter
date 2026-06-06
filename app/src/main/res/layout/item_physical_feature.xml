@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="item"
+            type="com.titanbbl.funny.face.filter.game.model.PhysicalFeatureItem" />
+    </data>
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_marginEnd="@dimen/_7sdp"
+            android:background="@drawable/bg_face_delay_card"
+            android:layout_marginBottom="@dimen/_7sdp"
+            android:layout_height="@dimen/_160sdp">
+
+
+            <!-- Overlay Image (for detection graphics) -->
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivOverlay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/physical_hand"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/Corner20dp"
+
+                android:layout_margin="@dimen/_3sdp" />
+
+
+
+            <!-- Title Label -->
+            <com.titanbbl.funny.face.filter.game.ui.component.custom.TextViewWithStroke
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_8sdp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="LIPS"
+                android:textColor="#FF5B3E"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:strokeColor="@color/white"
+                app:strokeWidth="4dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

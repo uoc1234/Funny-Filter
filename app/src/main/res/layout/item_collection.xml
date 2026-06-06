@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_190sdp"
+    android:layout_marginEnd="@dimen/_7sdp"
+    android:layout_marginBottom="@dimen/_7sdp">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imv_collection"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        app:shapeAppearanceOverlay="@style/Corner24dp"
+        tools:src="@tools:sample/backgrounds/scenic" />
+
+    <!-- Selection overlay -->
+    <View
+        android:id="@+id/selection_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"
+        android:visibility="gone" />
+
+    <FrameLayout
+        android:id="@+id/check_delete"
+        android:layout_width="@dimen/_24sdp"
+        android:layout_height="@dimen/_24sdp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="@dimen/_12sdp"
+        android:background="@drawable/bg_checkbox_selection"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/checkmark"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_checkmark"
+            android:visibility="gone"
+            app:tint="@color/white" />
+
+    </FrameLayout>
+
+</RelativeLayout>

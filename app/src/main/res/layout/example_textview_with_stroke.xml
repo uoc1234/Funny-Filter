@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#F0F0F0">
+
+    <!-- Example 1: Basic stroke text -->
+    <com.titanbbl.funny.face.filter.game.ui.component.custom.TextViewWithStroke
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        android:text="STROKE TEXT"
+        app:strokeWidth="4dp"
+        app:strokeColor="#000000"
+        app:fillColor="#FFFFFF"
+   
+        />
+
+    <!-- Example 2: Colorful stroke text -->
+    <com.titanbbl.funny.face.filter.game.ui.component.custom.TextViewWithStroke
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        android:text="COLORFUL"
+        app:strokeWidth="6dp"
+        app:strokeColor="#FF4444"
+        app:fillColor="#FFFF44"
+        
+        />
+
+    <!-- Example 3: Thick stroke -->
+    <com.titanbbl.funny.face.filter.game.ui.component.custom.TextViewWithStroke
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        android:text="THICK STROKE"
+        app:strokeWidth="8dp"
+        app:strokeColor="#4444FF"
+        app:fillColor="#FFFFFF"
+     
+        app:fontFamily="poppins_extrabold.ttf" />
+
+    <!-- Example 4: No stroke (just fill) -->
+    <com.titanbbl.funny.face.filter.game.ui.component.custom.TextViewWithStroke
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        android:text="NO STROKE"
+        app:strokeWidth="0dp"
+        app:fillColor="#FF8800"
+     />
+
+    <!-- Example 5: Different font and colors -->
+    <com.titanbbl.funny.face.filter.game.ui.component.custom.TextViewWithStroke
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="CUSTOM FONT"
+        app:strokeWidth="3dp"
+        app:strokeColor="#8800FF"
+        app:fillColor="#00FF88"
+        />
+
+</LinearLayout> 

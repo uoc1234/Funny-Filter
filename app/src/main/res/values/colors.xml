@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="color_main">#FF6F57</color>
+    <color name="color_bg_main">#FFFFFF</color>
+    <color name="color_3346F1">#3346f1</color>
+    <color name="color_FFA510">#FFA510</color>
+    <color name="color_9E9E9E">#9E9E9E</color>
+    <color name="colorBackground">#ffffff</color>
+    <color name="colorDisable">#bcbcbc</color>
+    <color name="color_FFE761">#FFE761</color>
+    <color name="selected_stroke_color">#F88808</color>
+    <color name="default_stroke_color">#FFFFFF</color>
+    <color name="color_ff5b3e">#FF5B3E</color>
+
+    <!-- IAP Screen Colors -->
+    <color name="orange_primary">#F97316</color>
+    <color name="gray_text">#52525B</color>
+    <color name="dark_text">#27272A</color>
+    <color name="light_background">#FAFAFA</color>
+    <color name="orange_light_background">#FFF7ED</color>
+    <color name="border_gray">#E4E4E7</color>
+    <color name="gray_dot">#D4D4D8</color>
+    
+    <!-- Lip Fall Challenge Colors -->
+    <color name="overlay_background">#80000000</color>
+    <color name="ads_placeholder_background">#E5E5E5</color>
+    <color name="lip_fall_background">#FFD700</color>
+    <color name="lip_fall_text_red">#FF4444</color>
+    <color name="color_121212">#121212</color>
+    <color name="lightTransparent">#ffffff</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorGrayAds">#ababab</color>
+
+</resources>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Corner20dp">
+        <item name="cornerSize">@dimen/_16sdp</item>
+    </style>
+
+    <style name="Corner24dp">
+        <item name="cornerSize">@dimen/_20sdp</item>
+    </style>
+
+    <style name="Corner16dp">
+        <item name="cornerSize">@dimen/_12sdp</item>
+    </style>
+
+    <style name="Corner12dp">
+        <item name="cornerSize">@dimen/_10sdp</item>
+    </style>
+
+    <style name="corner_12p_left">
+        <item name="cornerSizeTopLeft">@dimen/_12sdp</item>
+        <item name="cornerSizeBottomLeft">@dimen/_12sdp</item>
+
+    </style>
+
+    <style name="Corner180dp">
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="conner_top_12dp">
+        <item name="cornerSizeTopLeft">@dimen/_12sdp</item>
+        <item name="cornerSizeTopRight">@dimen/_12sdp</item>
+    </style>
+
+
+</resources>

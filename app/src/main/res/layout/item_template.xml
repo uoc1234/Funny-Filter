@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginEnd="8dp">
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/templateImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:scaleType="centerCrop"
+            app:shapeAppearanceOverlay="@style/conner_top_12dp" />
+
+
+        <TextView
+            android:id="@+id/templateTitle"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp" />
+    </RelativeLayout>
+</layout> 

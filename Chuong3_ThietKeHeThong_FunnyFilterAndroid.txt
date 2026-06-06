@@ -1,0 +1,399 @@
+CHƯƠNG 3: THIẾT KẾ HỆ THỐNG
+
+3.1. Thiết kế giao diện và kịch bản cho các chức năng
+
+3.1.1. Thiết kế giao diện
+
+Ứng dụng Funny Filter Android được thiết kế với giao diện hiện đại, thân thiện với người dùng và tối ưu cho trải nghiệm mobile. Hệ thống sử dụng kiến trúc Bottom Navigation với 4 tab chính:
+
+a) Tab Home (Trang chủ):
+- Màn hình chính hiển thị các video filter có sẵn
+- Giao diện grid layout để hiển thị danh sách filter
+- Nút chọn nhạc nền cho video
+- Các filter được phân loại theo chủ đề
+
+b) Tab Game (Trò chơi):
+- Hiển thị danh sách các mini-game thử thách
+- Layout grid 2 cột cho các game item
+- Các game bao gồm:
+  + Guess Challenge (Thử thách đoán)
+  + DIY Draw Challenge (Vẽ tự do)
+  + Poka Run (Chạy theo nhạc)
+  + Physical Features (Đặc điểm vật lý)
+  + Face Delay (Trễ khuôn mặt)
+  + Who You Look Like (Giống ai)
+
+c) Tab Collection (Bộ sưu tập):
+- Hiển thị danh sách video đã tạo
+- Chế độ xem và xóa video
+- Tính năng select multiple để xóa hàng loạt
+- Hiển thị thông tin chi tiết: tên file, kích thước, ngày tạo
+
+d) Tab Setting (Cài đặt):
+- Các tùy chọn cấu hình ứng dụng
+- Quản lý quyền truy cập
+- Thông tin về ứng dụng
+
+3.1.2. Kịch bản sử dụng
+
+Kịch bản 1: Tạo video với filter
+1. Người dùng mở ứng dụng → Màn hình Splash
+2. Chọn tab Home → Hiển thị danh sách filter
+3. Chọn filter mong muốn → Mở camera preview
+4. Chọn nhạc nền (tùy chọn) → Áp dụng filter
+5. Quay video → Lưu vào bộ sưu tập
+
+Kịch bản 2: Chơi mini-game
+1. Chọn tab Game → Hiển thị danh sách game
+2. Chọn game mong muốn → Màn hình loading
+3. Thực hiện thử thách theo hướng dẫn
+4. Hoàn thành → Xem kết quả và lưu video
+
+Kịch bản 3: Quản lý video
+1. Chọn tab Collection → Hiển thị danh sách video
+2. Xem video → Phát video trong dialog preview
+3. Xóa video → Chọn delete mode → Select video → Confirm delete
+
+3.2. Thiết kế các lớp thực thể cho hệ thống
+
+3.2.1. Thiết kế chi tiết các lớp
+
+a) Lớp VideoItem:
+```kotlin
+data class VideoItem(
+    val id: Long,                    // ID duy nhất của video
+    val filePath: String,            // Đường dẫn file video
+    val fileName: String,            // Tên file
+    val fileSize: Long,              // Kích thước file (bytes)
+    val dateCreated: Long,           // Thời gian tạo (timestamp)
+    val duration: Long,              // Thời lượng video (ms)
+    var isSelected: Boolean = false  // Trạng thái được chọn
+)
+```
+
+Chức năng:
+- getFormattedFileSize(): Định dạng kích thước file (B, KB, MB, GB)
+- getFormattedDate(): Định dạng ngày tạo (dd/MM/yyyy HH:mm)
+- getFormattedDuration(): Định dạng thời lượng (mm:ss)
+- getLastFrameBitmap(): Lấy frame cuối của video làm thumbnail
+- getFirstFrameBitmap(): Lấy frame đầu của video
+- getFrameAtTime(): Lấy frame tại thời điểm cụ thể
+
+b) Lớp GameItem:
+```kotlin
+data class GameItem(
+    val id: Int,           // ID của game
+    val title: String,     // Tên game
+    val imageResId: Int    // Resource ID của hình ảnh
+)
+```
+
+c) Lớp ChallengeItem:
+```kotlin
+data class ChallengeItem(
+    val id: Int,                      // ID thử thách
+    val imageUrl: Int,                // Resource ID hình ảnh
+    val label: String,                // Nhãn mô tả
+    var isSelected: Boolean = false,  // Trạng thái chọn
+    val strokeWidth: Float = 10f,     // Độ dày viền
+    val strokeColor: Int = Color.WHITE // Màu viền
+)
+```
+
+d) Lớp PhysicalFeatureItem:
+```kotlin
+data class PhysicalFeatureItem(
+    val id: Int,                        // ID đặc điểm
+    val type: PhysicalFeatureType,      // Loại đặc điểm
+    val title: String,                  // Tiêu đề
+    val subtitle: String? = null,       // Phụ đề (tùy chọn)
+    val imageRes: Int,                  // Resource hình ảnh
+    val overlayImageRes: Int? = null,   // Hình overlay (tùy chọn)
+    val flags: List<Int> = emptyList()  // Danh sách cờ
+)
+
+enum class PhysicalFeatureType {
+    LIPS,    // Môi
+    NOSE,    // Mũi  
+    HAND     // Tay
+}
+```
+
+e) Lớp CelebrityInfo:
+```kotlin
+data class CelebrityInfo(
+    val name: String,                           // Tên người nổi tiếng
+    val description: String,                    // Mô tả
+    val imageUrls: List<String>,               // Danh sách URL hình ảnh
+    val faceToken: String,                     // Token nhận diện khuôn mặt
+    val additionalInfo: Map<String, Any> = emptyMap() // Thông tin bổ sung
+)
+```
+
+f) Lớp VideoFilterItem:
+```kotlin
+data class VideoFilterItem(
+    val id: Int,           // ID filter
+    val name: String,      // Tên filter
+    val thumbnailRes: Int, // Resource thumbnail
+    val filterPath: String, // Đường dẫn filter
+    val category: String   // Danh mục filter
+)
+```
+
+3.2.2. Biểu đồ lớp
+
+Các lớp được tổ chức theo mô hình MVC với các package:
+- model/: Chứa các data class và entity
+- ui/component/: Chứa các Activity và Fragment
+- ui/bases/: Chứa các base class
+- data/: Chứa repository và database
+- utils/: Chứa các utility class
+
+3.3. Thiết kế cơ sở dữ liệu cho hệ thống
+
+3.3.1. Thiết kế chi tiết các bảng
+
+a) Bảng DatabaseUserDetails:
+```kotlin
+@Entity
+data class DatabaseUserDetails(
+    @PrimaryKey val user: String,     // Tên người dùng (khóa chính)
+    val avatar: String,               // URL avatar
+    val name: String,                 // Tên hiển thị
+    val userSince: String,           // Ngày tham gia
+    val location: String             // Vị trí địa lý
+)
+```
+
+b) Bảng DatabaseUserListItem:
+```kotlin
+@Entity  
+data class DatabaseUserListItem(
+    @PrimaryKey val id: Int,         // ID người dùng (khóa chính)
+    val avatar: String,              // URL avatar
+    val username: String             // Tên đăng nhập
+)
+```
+
+3.3.2. Data Access Object (DAO)
+
+```kotlin
+@Dao
+interface UsersDao {
+    // Truy vấn danh sách người dùng
+    @Query("SELECT * FROM DatabaseUserListItem")
+    fun getDatabaseUsers(): LiveData<List<DatabaseUserListItem>>
+    
+    // Thêm danh sách người dùng
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertAll(users: List<DatabaseUserListItem>)
+    
+    // Truy vấn chi tiết người dùng
+    @Query("SELECT * FROM DatabaseUserDetails WHERE user LIKE :user")
+    fun getUserDetails(user: String): LiveData<DatabaseUserDetails>
+    
+    // Thêm chi tiết người dùng
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertUserDetails(databaseUserDetails: DatabaseUserDetails)
+}
+```
+
+3.3.3. Database Configuration
+
+```kotlin
+@Database(
+    entities = [DatabaseUserListItem::class, DatabaseUserDetails::class], 
+    version = 1, 
+    exportSchema = false
+)
+abstract class UsersDatabase : RoomDatabase() {
+    abstract val usersDao: UsersDao
+}
+```
+
+3.4. Biểu đồ tuần tự cho các chức năng
+
+3.4.1. Tuần tự tạo video với filter
+
+1. User → MainActivity: Chọn tab Home
+2. MainActivity → HomeFragment: Hiển thị fragment
+3. HomeFragment → VideoFilterAdapter: Load danh sách filter
+4. User → VideoFilterAdapter: Chọn filter
+5. VideoFilterAdapter → Routes: Navigate to camera activity
+6. CameraActivity → CameraView: Khởi tạo camera
+7. CameraActivity → FilterEngine: Áp dụng filter
+8. User → CameraActivity: Bắt đầu quay
+9. CameraActivity → VideoProcessor: Xử lý video
+10. VideoProcessor → FileManager: Lưu file
+11. FileManager → CollectionFragment: Cập nhật danh sách
+
+3.4.2. Tuần tự chơi game thử thách
+
+1. User → MainActivity: Chọn tab Game  
+2. MainActivity → GameFragment: Hiển thị fragment
+3. GameFragment → GameAdapter: Load danh sách game
+4. User → GameAdapter: Chọn game
+5. GameAdapter → LoadingGameActivity: Navigate với loading
+6. LoadingGameActivity → ChallengeActivity: Navigate to specific challenge
+7. ChallengeActivity → CameraView: Khởi tạo camera
+8. ChallengeActivity → AIProcessor: Xử lý AI detection
+9. AIProcessor → ScoreManager: Tính điểm
+10. ScoreManager → ResultActivity: Hiển thị kết quả
+
+3.5. Lưu đồ (Thuật toán)
+
+3.5.1. Thuật toán xử lý video filter
+
+```
+BEGIN ProcessVideoFilter
+    INPUT: selectedFilter, cameraFrame
+    
+    1. Khởi tạo FilterEngine với selectedFilter
+    2. WHILE (đang quay video)
+        a. Nhận frame từ camera
+        b. Áp dụng filter lên frame
+        c. Render frame đã xử lý
+        d. Ghi frame vào video buffer
+    3. END WHILE
+    4. Lưu video buffer vào file
+    5. Cập nhật database với thông tin video mới
+    6. Thông báo hoàn thành cho user
+    
+END ProcessVideoFilter
+```
+
+3.5.2. Thuật toán AI detection cho game
+
+```
+BEGIN AIDetection
+    INPUT: cameraFrame, detectionType
+    
+    1. Tiền xử lý frame (resize, normalize)
+    2. SWITCH detectionType
+        CASE "FACE":
+            - Sử dụng FaceDetector
+            - Trích xuất face landmarks
+        CASE "POSE": 
+            - Sử dụng PoseDetector
+            - Trích xuất pose keypoints
+        CASE "HAND":
+            - Sử dụng HandDetector  
+            - Trích xuất hand landmarks
+    3. END SWITCH
+    4. Tính toán điểm số dựa trên detection result
+    5. Cập nhật UI với điểm số mới
+    6. Kiểm tra điều kiện hoàn thành game
+    
+END AIDetection
+```
+
+3.6. Biểu đồ thành phần cho hệ thống
+
+Hệ thống được chia thành các thành phần chính:
+
+3.6.1. Presentation Layer (Tầng giao diện)
+- MainActivity: Activity chính chứa bottom navigation
+- Fragment Package:
+  + HomeFragment: Hiển thị video filters
+  + GameFragment: Hiển thị mini-games  
+  + CollectionFragment: Quản lý video collection
+  + SettingFragment: Cài đặt ứng dụng
+- Activity Package:
+  + Camera Activities: Các activity xử lý camera
+  + Challenge Activities: Các activity mini-game
+  + Result Activities: Hiển thị kết quả
+
+3.6.2. Business Logic Layer (Tầng logic nghiệp vụ)
+- ViewModel Package:
+  + HomeViewModel: Logic cho home screen
+  + PredictionViewModel: Logic cho AI prediction
+  + MusicViewModel: Logic cho music selection
+- Repository Package:
+  + VideoRepository: Quản lý video data
+  + MusicRepository: Quản lý music data
+  + UserRepository: Quản lý user data
+
+3.6.3. Data Layer (Tầng dữ liệu)
+- Database Package:
+  + Room Database: Local database
+  + DAO interfaces: Data access objects
+- Network Package:
+  + API Services: Gọi API external
+  + Network models: Data transfer objects
+- File System:
+  + Video storage: Lưu trữ video files
+  + Music storage: Lưu trữ music files
+  + Cache management: Quản lý cache
+
+3.6.4. Infrastructure Layer (Tầng hạ tầng)
+- Camera Engine: Xử lý camera operations
+- AI/ML Engine: Machine learning processing
+- Filter Engine: Video filter processing  
+- Audio Engine: Audio processing
+- Utility Classes: Helper functions
+
+3.7. Biểu đồ triển khai cho hệ thống
+
+3.7.1. Kiến trúc triển khai
+
+```
+[Mobile Device]
+    ├── Android OS (API 24+)
+    ├── Funny Filter App
+    │   ├── UI Layer (Activities/Fragments)
+    │   ├── Business Layer (ViewModels/Repositories)
+    │   ├── Data Layer (Room DB/File System)
+    │   └── Native Libraries (Camera/AI/Audio)
+    ├── External Dependencies
+    │   ├── Google ML Kit (Face/Pose Detection)
+    │   ├── CameraX/Camera2 API
+    │   ├── MediaPlayer/MediaRecorder
+    │   └── Third-party Libraries
+    └── Device Hardware
+        ├── Camera (Front/Back)
+        ├── Microphone
+        ├── Storage (Internal/External)
+        └── GPU (for rendering)
+
+[External Services]
+    ├── Music CDN (BunnyCDN)
+    │   └── Background music files
+    ├── Analytics Services
+    │   └── User behavior tracking
+    └── Ad Networks (Optional)
+        └── Advertisement content
+```
+
+3.7.2. Cấu hình triển khai
+
+- Minimum SDK: API 24 (Android 7.0)
+- Target SDK: API 34 (Android 14)
+- Architecture: ARM64, ARM32
+- Storage Requirements: 
+  + App size: ~50MB
+  + Runtime storage: 100MB+ (for videos)
+- Permissions Required:
+  + CAMERA: Truy cập camera
+  + RECORD_AUDIO: Ghi âm thanh
+  + WRITE_EXTERNAL_STORAGE: Lưu video
+  + INTERNET: Download music, analytics
+
+3.7.3. Performance Considerations
+
+- Memory Management:
+  + Video processing: Sử dụng background threads
+  + Image caching: LRU cache cho thumbnails
+  + Garbage collection: Tối ưu object lifecycle
+  
+- Battery Optimization:
+  + Camera usage: Tắt camera khi không sử dụng
+  + Background processing: Hạn chế khi app ở background
+  + Network calls: Batch requests, cache responses
+
+- Storage Optimization:
+  + Video compression: H.264 encoding
+  + Thumbnail generation: Async processing
+  + Cache cleanup: Tự động xóa cache cũ
+
+

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Flag dimensions -->
+    <dimen name="flag_size">24dp</dimen>
+    <dimen name="flag_margin">4dp</dimen>
+    
+    <!-- Card dimensions -->
+    <dimen name="card_corner_radius">16dp</dimen>
+    <dimen name="card_elevation">8dp</dimen>
+    <dimen name="card_margin">8dp</dimen>
+    
+    <!-- General spacing -->
+    <dimen name="spacing_small">8dp</dimen>
+    <dimen name="spacing_medium">16dp</dimen>
+    <dimen name="spacing_large">24dp</dimen>
+    <dimen name="spacing_xlarge">32dp</dimen>
+    <dimen name="margin_50dp">50dp</dimen>
+</resources> 

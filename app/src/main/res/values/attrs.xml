@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="TextViewWithStroke">
+        <attr name="strokeWidth" format="dimension" />
+        <attr name="strokeColor" format="color" />
+        <attr name="fillColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="PredictionLayout">
+        <attr name="predictionText" format="string" />
+        <attr name="predictionImage" format="reference" />
+        <attr name="predictionImageUrl" format="string" />
+        <attr name="predictionTextSize" format="dimension" />
+        <attr name="predictionTextColor" format="color" />
+        <attr name="predictionBackgroundColor" format="color" />
+        <attr name="predictionCornerRadius" format="dimension" />
+    </declare-styleable>
+</resources> 

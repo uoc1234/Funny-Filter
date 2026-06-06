@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="adjust_token" translatable="false">123456789</string>
+    <string name="facebook_app_id" translatable="false">123456789</string>
+    <string name="facebook_client_token" translatable="false">123456789</string>
+</resources>

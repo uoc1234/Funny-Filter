@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ivFlag"
+    android:layout_width="@dimen/_50sdp"
+    android:layout_height="@dimen/_32sdp"
+    android:layout_marginHorizontal="@dimen/_4sdp"
+    android:scaleType="centerCrop" /> 
